@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:assignment3/models/meal.dart';
 
 class ApiServiceProvider {
-  final int amount = 10;
+  final int amount = 5;
   Stream<Meal?> fetchData() async* {
     for (int i = 0; i < amount; i++) {
       final response = await http.get(

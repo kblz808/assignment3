@@ -1,5 +1,8 @@
+import 'package:assignment3/bloc/app_bloc.dart';
+import 'package:assignment3/bloc/app_event.dart';
 import 'package:flutter/material.dart';
 import 'package:assignment3/models/meal.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MealCard extends StatelessWidget {
   final Meal meal;
@@ -35,8 +38,9 @@ class MealCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("${meal.price}\$"),
-              const ElevatedButton(
-                onPressed: null,
+              ElevatedButton(
+                onPressed: () =>
+                    context.read<AppBloc>().add(AppAddToCartEvent(meal)),
                 child: Text("add to cart"),
               ),
             ],
