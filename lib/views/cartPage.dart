@@ -44,7 +44,8 @@ class CartPage extends StatelessWidget {
                 Text("${calculateTotal(state.cart)}"),
                 ElevatedButton(
                   child: Text("checkout"),
-                  onPressed: () => context.read<AppBloc>().add(AppRestState()),
+                  onPressed: () {},
+                  //onPressed: () => context.read<AppBloc>().add(AppResetState()),
                 ),
               ],
             ),
