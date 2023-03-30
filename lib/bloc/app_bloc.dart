@@ -25,12 +25,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           }
         } else if (event is AppAddToCartEvent) {
           emit(AppAddToCartState(event.meal));
-        } else if (event is AppReset) {
+        } else if (event is AppNormal) {
           emit(AppNormalState());
         } else if (event is AppReadCart) {
-          emit(AppCartState(event.cart));
+          emit(AppCartState(cart: event.cart, dao: event.dao));
         } else if (event is AppReadHistroy) {
-          emit(AppHistoryState(event.history));
+          emit(AppHistoryState(event.dao));
+        } else if (event is AppReset) {
+          emit(AppResetState());
         }
       },
     );
