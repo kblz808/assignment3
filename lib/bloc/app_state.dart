@@ -1,6 +1,8 @@
 import 'package:assignment3/models/meal.dart';
 import 'package:equatable/equatable.dart';
 
+import 'package:assignment3/dao/history_dao.dart';
+
 abstract class AppState extends Equatable {}
 
 class AppInitialState extends AppState {
@@ -47,18 +49,24 @@ class AppNormalState extends AppState {
 
 class AppCartState extends AppState {
   final List<Meal> cart;
+  final HistoryDAO dao;
 
-  AppCartState(this.cart);
+  AppCartState({required this.cart, required this.dao});
 
   @override
   List<Object> get props => [];
 }
 
 class AppHistoryState extends AppState {
-  final List<List<Meal>> history;
+  final HistoryDAO dao;
 
-  AppHistoryState(this.history);
+  AppHistoryState(this.dao);
 
+  @override
+  List<Object> get props => [];
+}
+
+class AppResetState extends AppState {
   @override
   List<Object> get props => [];
 }
