@@ -8,17 +8,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HistoryPage extends StatelessWidget {
   List<String> deserialize(History obj) {
     final items = obj.items.split(",").toList();
-    //print(items);
     return items;
   }
 
   Widget singleCheckout(History history, HistoryDAO dao) {
     final items = deserialize(history);
     final last = items.last;
-
-    print(items);
-
-    //return Text("converted");
 
     return Container(
       padding: const EdgeInsets.all(5),
@@ -85,6 +80,7 @@ class HistoryPage extends StatelessWidget {
         ),
         onPressed: () async {
           await dao.deleteAllEmployee();
+          Navigator.pop(context);
         },
       ),
       body: Padding(
